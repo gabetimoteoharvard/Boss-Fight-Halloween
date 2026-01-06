@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d36dqcesjnq88"]
+
+[ext_resource type="Texture2D" uid="uid://cppnpbyajd182" path="res://assets/Graveyard [16x16]/Parallax Background/Background/Sky.png" id="1_ukmyo"]
+[ext_resource type="Texture2D" uid="uid://bvvsux5ng0hqy" path="res://assets/Graveyard [16x16]/Parallax Background/Background/Cloud 3.png" id="2_52ig3"]
+[ext_resource type="Texture2D" uid="uid://brkfkh31y2yu3" path="res://assets/Graveyard [16x16]/Parallax Background/Background/Cloud 2.png" id="3_001ka"]
+[ext_resource type="Texture2D" uid="uid://bq08jtm5q65j5" path="res://assets/Graveyard [16x16]/Parallax Background/Background/Cloud 1.png" id="4_m841r"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(167, 95)
+texture = ExtResource("1_ukmyo")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Cloud3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(169, 90)
+texture = ExtResource("2_52ig3")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+
+[node name="Cloud2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(168, 90)
+texture = ExtResource("3_001ka")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+
+[node name="Cloud1" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(170, 95)
+texture = ExtResource("4_m841r")

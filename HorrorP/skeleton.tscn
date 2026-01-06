@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://r2y3k75fj4kj"]
+
+[ext_resource type="Script" path="res://skeleton.gd" id="1_7bd7j"]
+[ext_resource type="Texture2D" uid="uid://buvfcnspdc7v8" path="res://assets/ gothicvania patreon collection/Skeleton/Sprite Sheets/Skeleton Idle.png" id="1_jc6j5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ns03l"]
+radius = 27.0
+height = 54.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrfop"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhnlk"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5vqm"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nsra"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip8jh"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(96, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2tcw"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(120, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yaop"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(144, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ign6f"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(168, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b4rx"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(192, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilxjp"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(216, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o8mh"]
+atlas = ExtResource("1_jc6j5")
+region = Rect2(240, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knym6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrfop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhnlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5vqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nsra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip8jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2tcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yaop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ign6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b4rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilxjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o8mh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Skeleton" type="Area2D"]
+script = ExtResource("1_7bd7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 3)
+shape = SubResource("CapsuleShape2D_ns03l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_knym6")
+animation = &"idle"
+frame_progress = 0.707062

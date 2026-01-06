@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpjnmwi4hv6wk"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_w5fpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj4b2"]
+size = Vector2(68.5, 1420)
+
+[node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("collision")]
+script = ExtResource("1_w5fpe")
+collision = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -2)
+shape = SubResource("RectangleShape2D_fj4b2")

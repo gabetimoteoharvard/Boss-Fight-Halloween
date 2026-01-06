@@ -1,0 +1,17 @@
+~ cemetery_sign
+
+GASLOW CEMETERY
+
+set State.dialogue = false
+
+=> END
+
+~ ending_sign
+
+CONGRATULATIONS!
+THANK YOU FOR PLAYING!
+TALK TO THE SKELETON
+FOR ONE LAST SURPRISE
+
+set State.dialogue = false
+=> END

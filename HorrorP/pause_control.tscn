@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bifypd7rvjsu3"]
+
+[ext_resource type="Texture2D" uid="uid://cde85vwmbx1w2" path="res://art_ui/pause2.png" id="1_2pkl5"]
+[ext_resource type="Script" path="res://pause_control.gd" id="1_s1rny"]
+[ext_resource type="Texture2D" uid="uid://bysu5eea08o11" path="res://art_ui/unpause.png" id="3_ow0wn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfy4k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2pkl5")
+}],
+"loop": true,
+"name": &"pause",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ow0wn")
+}],
+"loop": true,
+"name": &"resume",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5w1o"]
+radius = 51.0098
+
+[node name="PauseControl" type="Node2D" node_paths=PackedStringArray("sprite")]
+process_mode = 3
+position = Vector2(2, 2)
+script = ExtResource("1_s1rny")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2864, 92)
+scale = Vector2(0.203125, 0.197266)
+sprite_frames = SubResource("SpriteFrames_wfy4k")
+animation = &"pause"
+
+[node name="CollisionDetection" type="Area2D" parent="."]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetection"]
+position = Vector2(2863, 94)
+shape = SubResource("CircleShape2D_n5w1o")
+
+[connection signal="mouse_entered" from="CollisionDetection" to="." method="_on_collision_detection_mouse_entered"]
+[connection signal="mouse_exited" from="CollisionDetection" to="." method="_on_collision_detection_mouse_exited"]

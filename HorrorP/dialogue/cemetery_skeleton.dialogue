@@ -1,0 +1,40 @@
+
+~ main 
+
+if State.boss_defeated:
+	=> thank_you
+elif not State.backstory_status:
+	=> initial_conversation
+else:
+	=> directions
+
+=> END
+
+~ initial_conversation
+
+Skeleton Guard: Fear not, I'm not an enemy.
+Skeleton Guard: This land, long ago, was home to many people, including my family.
+Skeleton Guard: But a terrible creature ravaged it, and now we are slaves to it.
+Skeleton Guard: If you are an adventurer then I plead you, please defeat the creature and free us of our curse.
+
+set State.backstory_status = true
+set State.dialogue = false
+
+=> END
+
+~ directions
+Skeleton Guard: If you keep going straight, you'll meet it soon enough. Careful traveler.
+set State.dialogue = false
+
+=> END
+
+~ thank_you 
+Skeleton Guard: Oh my! You defeated the boss!
+Skeleton Guard: You are stronger than I thought traveler.
+Skeleton Guard: These souls may finally rest, and we are eternally grateful.
+Skeleton Guard: As proof of my gratitude, I now owe you a $30 Christmas present.
+Skeleton Guard: Take a picture of this and send it to Gabe privately, your debt will be repaid.
+
+set State.dialogue = false
+
+=> END

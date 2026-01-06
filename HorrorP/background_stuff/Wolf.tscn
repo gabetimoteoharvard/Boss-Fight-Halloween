@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://5lkk843ajtpj"]
+
+[ext_resource type="Script" path="res://Wolf.gd" id="1_ig0dx"]
+[ext_resource type="Texture2D" uid="uid://b2j3nbhnsdmwk" path="res://assets/ gothicvania patreon collection/wolf-runing-cycle/sprites/wolf-runing-cycle-skin.png" id="2_qffkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujeph"]
+size = Vector2(20, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yhjm"]
+atlas = ExtResource("2_qffkg")
+region = Rect2(0, 0, 56, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4xge"]
+atlas = ExtResource("2_qffkg")
+region = Rect2(56, 0, 56, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yugh1"]
+atlas = ExtResource("2_qffkg")
+region = Rect2(112, 0, 56, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c70p5"]
+atlas = ExtResource("2_qffkg")
+region = Rect2(168, 0, 56, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0h3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yhjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4xge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yugh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c70p5")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ig0dx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 1)
+shape = SubResource("RectangleShape2D_ujeph")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6.75, -4.375)
+scale = Vector2(0.526786, 0.648438)
+sprite_frames = SubResource("SpriteFrames_m0h3h")
+animation = &"running"
+frame_progress = 0.976849

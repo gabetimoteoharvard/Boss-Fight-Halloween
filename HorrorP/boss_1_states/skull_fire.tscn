@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjfp88oweektm"]
+
+[ext_resource type="Script" path="res://boss_1_states/skull_projectile.gd" id="1_s7u2r"]
+[ext_resource type="Texture2D" uid="uid://bdhdt6dact6b5" path="res://assets/ gothicvania patreon collection/Fire-Skull-Files/PNG/fire-skull-no-fire.png" id="1_sa2mf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbpkr"]
+atlas = ExtResource("1_sa2mf")
+region = Rect2(0, 0, 54, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbf8u"]
+atlas = ExtResource("1_sa2mf")
+region = Rect2(54, 0, 54, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mcdj"]
+atlas = ExtResource("1_sa2mf")
+region = Rect2(108, 0, 54, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk0oq"]
+atlas = ExtResource("1_sa2mf")
+region = Rect2(162, 0, 54, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iao4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbpkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbf8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mcdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk0oq")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_doaja"]
+radius = 11.0
+height = 32.0
+
+[node name="SkullFire" type="Area2D" node_paths=PackedStringArray("anim")]
+script = ExtResource("1_s7u2r")
+anim = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.249999, 2.86102e-06)
+scale = Vector2(0.564815, 0.557143)
+sprite_frames = SubResource("SpriteFrames_iao4r")
+animation = &"moving"
+frame_progress = 0.188974
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_doaja")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
